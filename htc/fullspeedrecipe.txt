@@ -1,0 +1,149 @@
+
+GREGOR KICZALES: In this video, I want to introduce
+one of the most important elements of the course, the How to Design Functions
+recipe.
+Or we call it the HtDF recipe for short.
+The HtDF recipe systematizes the design of a function.
+What I mean by that is it tells us what to do first,
+and second, and third, all the way through the design of a function.
+So it helps us know what to do, and it also
+helps us be sure that we end up with a high quality function.
+It really does what we need it to do, and that's been well-tested.
+
+Now, there's a funny thing about design recipes,
+or design methods as they're sometimes called,
+that particularly affects when you learn them.
+What a design recipe does is it makes hard problems easier.
+It lets us take a big, hard problem, and break it down
+and work through it in a systematic fashion.
+The price we pay for that is that it actually
+makes easy problems more cumbersome.
+That's right.
+The HtDF recipe is going to make hard functions
+easier to design and easy functions a little harder to design.
+In fact, once you get good at designing functions,
+you won't use the HtDF recipe for really simple functions.
+But for now, we want you to use the HtDF even for simple functions.
+That's because the way this is going to work
+is that you're going to use simple functions to learn the recipe,
+and then you're going to use the recipe to do the hard functions.
+So what I need to ask for now is two kinds of patience.
+If you've never programmed before, it's going
+to seem like there's a lot going on when we introduce this recipe.
+So I'm going to need to ask that you be patient, and go through it with me
+at the pace we're going through, and I promise you it will become familiar.
+If you have programmed before, this is going to seem like overkill.
+We're going to start with a very simple function.
+And by using the recipe, it's going to take us quite a long time to do it.
+I need to ask you to be patient too.
+I promise you within a few weeks, by using the recipe,
+we're going to be designing much harder functions
+than we could design otherwise.
+Here's how we're going to go through this material.
+There's going to be this video and the next one.
+In the first video, I'm going to go through the design of a function step
+by step.
+And I'm going to tell you what I'm doing at each step,
+but I'm going to describe it as if you already knew
+the terminology of the design recipe.
+I know that sounds silly, because you don't.
+But we've learned from teaching this to many, many students
+at UBC that the right thing to do first is to kind of go through
+at almost normal speed.
+And in the next video, the next video is going to kind of
+be a slow motion version of this video.
+In that next video, as we go through it piece by piece,
+I'll elaborate on each piece we're doing, and why we're doing it,
+and how it works.
+So what we're going to ask you do is watch this video once at speed,
+then watch the next video with DrRacket open following along,
+and then it'll probably help you to watch this video again at speed.
+Everything we do, the entire design recipe,
+you can find on the course web page under the Design Recipes link.
+That example that's used on the website is the one we're going to do here,
+so you'll be able to follow along.
+Again, be patient with the material, and be patient with yourself.
+There's a lot going on in the HTDF recipe.
+You're not going to pick it up the first time through.
+You're not going to pick it all up the second time through.
+But you'll be going through the recipe hundreds of times through the course,
+and I promise you within a couple weeks, it's going to seem quite familiar,
+and you'll just be learning more nuances about it as we go forward.
+
+OK.
+Now, what I've done here is I downloaded the doublestarter.racket
+from the HtDF module web page.
+And I've opened the file up in DrRacket.
+And it's giving me a problem that we need to solve, a design problem.
+And what it wants us to do is design a function that consumes a number
+and produces twice that number.
+We're supposed to call the function double,
+and we're supposed to follow the HtDF recipe.
+Now, whenever I follow the HtDF recipe, I
+like to have a copy of the recipe right in front of me.
+And so what I've done here is I went to the Design Recipes tab
+on the course website, and then I followed the link to the How
+to Design Functions page.
+And then at the top here is a quick summary of that recipe,
+and I've copied that in my video editor and put it right here, so we can work.
+So step one is the signature, purpose, and stub.
+So this function's going to consume a number and produce a number,
+and that's the signature for it.
+The purpose of this function is to produce two times the given number.
+
+And the stub, the stub is something, remember, in the next video,
+I'll go through more detail about this.
+But the stub is going to look like this.
+It's defined the name of the function, a single parameter which I'll call N.
+And this stub is going to produce zero.
+And as I, said we'll talk more about what's
+going on there in the next video.
+So there's step one, signature, purpose, and stub.
+Now, I'm going to do the examples.
+
+Now what I'm going to write for the examples is I'm
+going to write check-expect, and then a call to the function
+double of an argument like, let's say, 3.
+And then I'm going to write 6, because of what this is saying
+is that if I call double with 3, I expect to get the result 6.
+Now, if I call double with, for example, 4.2, I expect to get 8.4.
+So that's my examples.
+
+I'm going to run my examples, and they're going to fail.
+Both tests are going to fail.
+Again, we'll talk more about this next time.
+But the fact that they even ran told me something important, which
+is that the examples where well-formed.
+
+Now, I go onto the template step.
+And the template for this function is going to be just define double of N,
+and then dot, dot, dot N. And the way I'm
+going to read that is it's going to say, you know,
+when I get around to coding the body of the function,
+N is what I have to work with.
+The actual parameter is what I have to work with.
+So there's the template.
+Now, I have to go onto the step of coding the body.
+To code the body, what I do is I make myself a copy of the template.
+I take the old template and comment it out.
+And now, I have to figure out, well, what is in the body of this function?
+What's going to make the body of this function work?
+And now, I'm going to look at the examples.
+I'm going to look at the signature.
+I'm going to look at everything I've written before.
+And what I'm going to do here is, actually, I'm
+going to elaborate the second example.
+Just to make this more clear to myself, I'm
+going to say, look, the reason it was 8.4 is that it was really 2 times 4.2.
+And now, I have my aha moment.
+I understand what the function is supposed to do.
+It's times 2 of N. I run it.
+Both tests pass.
+Fantastic.
+I have the sense of my functions working.
+So that's a first pass through the HtDF design recipe.
+Again, I certainly don't expect you to have fully absorbed the HtDF
+recipe from that quick pass through it.
+What I want you to do now is go to the next video, which
+is going to be the slow motion version of this video, in which I'll
+talk about the different parts of the recipe in more detail.
